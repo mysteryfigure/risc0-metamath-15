@@ -18,7 +18,7 @@ fn analyze() {
 
     println!("Reading metamath file");
 
-    let axiom_file = File::open("theory/set_comp.mm".clone()).expect("Failed to find file"); // theory/mm-benchmarks/transfer-goal.mm theory/set_comp5.mm
+    let axiom_file = File::open("theory/set_comp5.mm".clone()).expect("Failed to find file"); // theory/mm-benchmarks/transfer-goal.mm theory/set_comp5.mm
 
     let axiom_file_lines: Vec<String> = BufReader::new(axiom_file)
         .lines()
@@ -170,33 +170,33 @@ fn analyze() {
             Err(_) => panic!("SystemTime error"),
         }
 
-        println!("Proving session");
-        start_time = SystemTime::now();
+        // println!("Proving session");
+        // start_time = SystemTime::now();
 
-        // Prove the session to produce a receipt.
-        let receipt = session.prove().unwrap();
+        // // Prove the session to produce a receipt.
+        // let receipt = session.prove().unwrap();
 
-        match SystemTime::now().duration_since(start_time) {
-            Ok(n) => println!(
-                "The ZK metamath ran the session, taking {} milliseconds",
-                n.as_millis()
-            ),
-            Err(_) => panic!("SystemTime error"),
-        }
+        // match SystemTime::now().duration_since(start_time) {
+        //     Ok(n) => println!(
+        //         "The ZK metamath ran the session, taking {} milliseconds",
+        //         n.as_millis()
+        //     ),
+        //     Err(_) => panic!("SystemTime error"),
+        // }
 
-        println!("Verifying");
-        start_time = SystemTime::now();
+        // println!("Verifying");
+        // start_time = SystemTime::now();
 
-        let theorem_hash : Digest = from_slice(&receipt.journal).unwrap();
-        receipt.verify(METHOD_NAME_ID).unwrap();
+        // let theorem_hash : Digest = from_slice(&receipt.journal).unwrap();
+        // receipt.verify(METHOD_NAME_ID).unwrap();
 
-        match SystemTime::now().duration_since(start_time) {
-            Ok(n) => println!(
-                "The ZK metamath verifier succeeds in verifying the proof, taking {} milliseconds",
-                n.as_millis()
-            ),
-            Err(_) => panic!("SystemTime error"),
-        }
+        // match SystemTime::now().duration_since(start_time) {
+        //     Ok(n) => println!(
+        //         "The ZK metamath verifier succeeds in verifying the proof, taking {} milliseconds",
+        //         n.as_millis()
+        //     ),
+        //     Err(_) => panic!("SystemTime error"),
+        // }
 }
 
 fn main() {
