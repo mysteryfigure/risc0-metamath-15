@@ -164,9 +164,8 @@ fn analyze() {
 
         match SystemTime::now().duration_since(start_time) {
             Ok(n) => println!(
-                "The non-ZK metamath ran the session, taking {} milliseconds for {} lines",
-                n.as_millis(),
-                num_lines_to_take
+                "The non-ZK metamath ran the session, taking {} milliseconds",
+                n.as_millis()
             ),
             Err(_) => panic!("SystemTime error"),
         }
@@ -179,9 +178,8 @@ fn analyze() {
 
         match SystemTime::now().duration_since(start_time) {
             Ok(n) => println!(
-                "The ZK metamath ran the session, taking {} milliseconds for {} lines",
-                n.as_millis(),
-                num_lines_to_take
+                "The ZK metamath ran the session, taking {} milliseconds",
+                n.as_millis()
             ),
             Err(_) => panic!("SystemTime error"),
         }
@@ -194,9 +192,8 @@ fn analyze() {
 
         match SystemTime::now().duration_since(start_time) {
             Ok(n) => println!(
-                "The ZK metamath verifier succeeds in verifying the proof, taking {} milliseconds for {} lines",
-                n.as_millis(),
-                num_lines_to_take
+                "The ZK metamath verifier succeeds in verifying the proof, taking {} milliseconds",
+                n.as_millis()
             ),
             Err(_) => panic!("SystemTime error"),
         }
